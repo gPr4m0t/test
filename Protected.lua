@@ -20,7 +20,7 @@ _G.Team = "Pirates" -- Auto Select Teams
 -- 1 Template Sheet https://docs.google.com/spreadsheets/d/1kJE3pD0h_hPLfZOIqtjVwqL-XOqg2SE2aRpyoytAAiM/edit#gid=0
 -- 2 Template Sheet https://docs.google.com/spreadsheets/d/1u0AWP3Gw4jsXdFmxiBBHfbTjIqdeG2z_bzk8vyMCMgk/edit?usp=sharing 
 _G.SheetType = 2 -- Type Of Sheet
-_G.Delay = 3 -- Time Delay
+_G.Delay = 20 -- Time Delay
 _G.TimeAFK = 5 -- Time AFK(Not Move)
 _G.CooldownHop = 5 -- Minute 
 -- Config Zone
@@ -324,10 +324,9 @@ spawn(
              if CDKYed then
                 Payload = Payload .."CDK,"
                 end
+
             else
-                Payload = ""
-            end
-                Payload = Payload.." \nLv: "..Level.." \nW : "..World.." \nB : "..Money.." \nF : "..Fragment.." \nFruit Inventory : "..Fruit.." \nInventory : "..Sword.." \nFighting Style : "..Malee
+                Payload = Payload.."Lv: "..Level.." \nW : "..World.." \nB : "..Money.." \nF : "..Fragment.." \nFruit Inventory : "..Fruit.." \nInventory : "..Sword.." \nFighting Style : "..Malee
             
                 Request(
                 {
@@ -606,7 +605,7 @@ task.spawn(function()
     end
 -- Config Zone
 if not _G.Delay then 
-	_G.Delay = 10 
+	_G.Delay = 20 
 end
 if type(_G.Delay) ~= "number" then
 		_G.Delay = 10 
