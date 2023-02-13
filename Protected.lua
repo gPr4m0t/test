@@ -551,7 +551,7 @@ spawn(
                 Payload = Payload .."".."N/A"..""
             else
         
-            Payload = Payload .."Awake : "..CurrentFruitName.." ".."{"..S.."} "
+            Payload = Payload ..""..CurrentFruitName.." ".."{"..S.."} "
             end
 			
             r =
