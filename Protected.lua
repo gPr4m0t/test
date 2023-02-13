@@ -319,6 +319,9 @@ spawn(
                       end
                   end
              end 
+            if CDKYed or SGYed or HSYed or DDGYed or YMYed or TSYed or TTKYed then
+                Payload = ""
+            end
                 Payload = Payload.."Level : "..Level.." \nWorld : "..World.." \nBeli : "..Money.." \nFragment : "..Fragment.." \nFruit Inventory : "..Fruit.." \nInventory : "..Sword.." \nFighting Style : "..Malee
             
                 Request(
