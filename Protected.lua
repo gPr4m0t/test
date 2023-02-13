@@ -8,7 +8,7 @@ if not game:IsLoaded() then
     GameLoadGui.Text = 'Wait Game Loading';
     game.Loaded:Wait();
     GameLoadGui:Destroy();
-    task.wait(30);
+    task.wait(300);
 end;
 _G.FilterItem = true
 _G.Distance = 0 -- Distance Hop
