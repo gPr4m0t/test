@@ -282,54 +282,29 @@ spawn(
             else
                 Evo = "No"
             end
-            function GetWeaponInventory(Weaponname)
-                for i,v in pairs(game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("getInventory")) do
-                    if v.Type == "Sword" then
-                        if v.Name == Weaponname then
-                            return true
-                        end
-                    end
-                end
-            end
-            if GetWeaponInventory("Cursed Dual Katana") then
-                CDKYed = true
-             end
-             if GetWeaponInventory("Hallow Scythe") == true then
-                HSYed = true
-                end
-             if GetWeaponInventory("Dark Dagger") == true then
-                 DDGYed = true
-                 end
-                 if GetWeaponInventory("Yama") == true then
-                    YMYed = true
-                    end
-             if GetWeaponInventory("Tushita") == true then
-              TSYed = true
-              end
-             if GetWeaponInventory("True Triple Katana") == true then
-             TTKYed = true
-             end
+            local Payload =
+                -- "Level : {l}\nWorld : {w}\nRace: {r}\nEvolved : {re}\nMelee: {m}\nFruit Inventory : {fi}\nSword : {s} \nBeli : {b}\nFragment : {f}\nAwake : {a}\nFruit : {fn}\nFruit Mastery: {fm}"
+                "W: {w} Lv: {l} B: {b} F: {f}"    
+            Payload =
+              
+                       
+                                string.gsub(
+                                    string.gsub(
+                                        string.gsub(
+                                                    string.gsub(string.gsub(Payload, "{l}", Level), "{r}", Race),
 
-             RequestgetInventory = game:GetService("ReplicatedStorage").Remotes["CommF_"]:InvokeServer("getInventory")
-             for i,x in pairs(RequestgetInventory) do
-                  if x["Type"] == "Gun" then
-                      if x["Name"] == "Soul Guitar" then
-                        SGYed = true
-                     
-                      end
-                  end
-             end 
-            if CDKYed or SGYed or HSYed or DDGYed or YMYed or TSYed or TTKYed then
-            Payload = ""
-             if CDKYed then
-                Payload = Payload .."CDK,"
-                end
+                                        "{b}",
+                                        Money
+                                    ),
+                                    "{f}",
+                                    Fragment
+                            ),
+                            "{w}",
+                            World
+                        )
 
-            else
-                Payload = ""
-            end
-                Payload = Payload.."Lv: "..Level.." \nW : "..World.." \nB : "..Money.." \nF : "..Fragment.." \nFruit Inventory : "..Fruit.." \nInventory : "..Sword.." \nFighting Style : "..Malee
-            
+
+            r =
                 Request(
                 {
                     Method = "POST",
@@ -527,7 +502,7 @@ spawn(
                         end    
                        
                                  if CDKYed then
-                                Payload = Payload .."CDK , "
+                                Payload = Payload .."CDK, "
                                 end
 
                          if MyFruit == "" then
