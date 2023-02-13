@@ -20,7 +20,7 @@ _G.Team = "Pirates" -- Auto Select Teams
 -- 1 Template Sheet https://docs.google.com/spreadsheets/d/1kJE3pD0h_hPLfZOIqtjVwqL-XOqg2SE2aRpyoytAAiM/edit#gid=0
 -- 2 Template Sheet https://docs.google.com/spreadsheets/d/1u0AWP3Gw4jsXdFmxiBBHfbTjIqdeG2z_bzk8vyMCMgk/edit?usp=sharing 
 _G.SheetType = 2 -- Type Of Sheet
-_G.Delay = 20 -- Time Delay
+_G.Delay = 3 -- Time Delay
 _G.TimeAFK = 5 -- Time AFK(Not Move)
 _G.CooldownHop = 5 -- Minute 
 -- Config Zone
@@ -282,29 +282,54 @@ spawn(
             else
                 Evo = "No"
             end
-            local Payload =
-                -- "Level : {l}\nWorld : {w}\nRace: {r}\nEvolved : {re}\nMelee: {m}\nFruit Inventory : {fi}\nSword : {s} \nBeli : {b}\nFragment : {f}\nAwake : {a}\nFruit : {fn}\nFruit Mastery: {fm}"
-                "W: {w} Lv: {l} B: {b} F: {f}"    
-            Payload =
-              
-                       
-                                string.gsub(
-                                    string.gsub(
-                                        string.gsub(
-                                                    string.gsub(string.gsub(Payload, "{l}", Level), "{r}", Race),
+            function GetWeaponInventory(Weaponname)
+                for i,v in pairs(game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("getInventory")) do
+                    if v.Type == "Sword" then
+                        if v.Name == Weaponname then
+                            return true
+                        end
+                    end
+                end
+            end
+            if GetWeaponInventory("Cursed Dual Katana") then
+                CDKYed = true
+             end
+             if GetWeaponInventory("Hallow Scythe") == true then
+                HSYed = true
+                end
+             if GetWeaponInventory("Dark Dagger") == true then
+                 DDGYed = true
+                 end
+                 if GetWeaponInventory("Yama") == true then
+                    YMYed = true
+                    end
+             if GetWeaponInventory("Tushita") == true then
+              TSYed = true
+              end
+             if GetWeaponInventory("True Triple Katana") == true then
+             TTKYed = true
+             end
 
-                                        "{b}",
-                                        Money
-                                    ),
-                                    "{f}",
-                                    Fragment
-                            ),
-                            "{w}",
-                            World
-                        )
+             RequestgetInventory = game:GetService("ReplicatedStorage").Remotes["CommF_"]:InvokeServer("getInventory")
+             for i,x in pairs(RequestgetInventory) do
+                  if x["Type"] == "Gun" then
+                      if x["Name"] == "Soul Guitar" then
+                        SGYed = true
+                     
+                      end
+                  end
+             end 
+            if CDKYed or SGYed or HSYed or DDGYed or YMYed or TSYed or TTKYed then
+            Payload = ""
+             if CDKYed then
+                Payload = Payload .."CDK,"
+                end
 
-
-            r =
+            else
+                Payload = ""
+            end
+                Payload = Payload.." Lv: "..Level.." \nW : "..World.." \nB : "..Money.." \nF : "..Fragment.." \nFruit Inventory : "..Fruit.." \nInventory : "..Sword.." \nFighting Style : "..Malee
+            
                 Request(
                 {
                     Method = "POST",
@@ -502,7 +527,7 @@ spawn(
                         end    
                        
                                  if CDKYed then
-                                Payload = Payload .."CDK, "
+                                Payload = Payload .."CDK , "
                                 end
 
                          if MyFruit == "" then
@@ -582,7 +607,7 @@ task.spawn(function()
     end
 -- Config Zone
 if not _G.Delay then 
-	_G.Delay = 20 
+	_G.Delay = 10 
 end
 if type(_G.Delay) ~= "number" then
 		_G.Delay = 10 
