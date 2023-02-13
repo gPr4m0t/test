@@ -805,14 +805,14 @@ Nexus:OnButtonClick(
             game.ReplicatedStorage.Remotes.CommF_:InvokeServer("DressrosaQuestProgress", "Dressrosa") == 0 and
                 game.ReplicatedStorage.Remotes.CommF_:InvokeServer("ZQuestProgress", "Zou") == 0
          then
-            World = "3"
+            World = "Thrid Sea"
         elseif
             game.ReplicatedStorage.Remotes.CommF_:InvokeServer("DressrosaQuestProgress", "Dressrosa") == 0 and
                 not game.ReplicatedStorage.Remotes.CommF_:InvokeServer("ZQuestProgress", "Zou") == 0
          then
-            World = "2"
+            World = "Secnond Sea"
         else
-            World = "1"
+            World = "First Sea"
         end
 
        RequestgetInventory = game:GetService("ReplicatedStorage").Remotes["CommF_"]:InvokeServer("getInventory")
