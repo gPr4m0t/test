@@ -322,7 +322,7 @@ spawn(
             if CDKYed or SGYed or HSYed or DDGYed or YMYed or TSYed or TTKYed then
             Payload = ""
              if CDKYed then
-                Payload = Payload .."CDK,"
+                Payload = Payload .."CDK, "
                 end
             else
                 Payload = ""
@@ -442,7 +442,7 @@ spawn(
                 if Ml == 6 then
                     Payload = Payload.."GOD, "
                 else
-                    Payload = Payload .. Ml.."/6, "
+                    Payload = Payload .. Ml.."/6,"
                 end
 		
 						local MyFruit = game:GetService("Players").LocalPlayer.Data.DevilFruit.Value
@@ -526,11 +526,11 @@ spawn(
                         end    
                        
                                  if CDKYed then
-                                Payload = Payload .."CDK , "
+                                Payload = Payload .."CDK, "
                                 end
 
                          if MyFruit == "" then
-                Payload = Payload .." ".."N/A".." "
+                Payload = Payload .."".."N/A"..""
             else
         
             Payload = Payload .." "..CurrentFruitName.." ".."{"..S.."} "
