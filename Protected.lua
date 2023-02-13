@@ -324,27 +324,7 @@ spawn(
              if CDKYed then
                 Payload = Payload .."CDK,"
                 end
-                if SGYed then
-                    Payload = Payload .."SG, "
-                end
-                if HSYed then
-                    Payload = Payload .."HS, "
-                end
-                if DDGYed then
-                    Payload = Payload .."DG, "
-                end
-                if YMYed then
-                    Payload = Payload .."YM, "
-                    end
-                if TSYed then
-                    Payload = Payload .."TS, "
-                    end
-                if TTKYed then
-                    Payload = Payload .."TTK "
-                end
             else
-                Payload = ""
-            end
                 Payload = Payload.." \nLv: "..Level.." \nW : "..World.." \nB : "..Money.." \nF : "..Fragment.." \nFruit Inventory : "..Fruit.." \nInventory : "..Sword.." \nFighting Style : "..Malee
             
                 Request(
