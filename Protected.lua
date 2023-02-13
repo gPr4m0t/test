@@ -8,7 +8,7 @@ if not game:IsLoaded() then
     GameLoadGui.Text = 'Wait Game Loading';
     game.Loaded:Wait();
     GameLoadGui:Destroy();
-    task.wait();
+    task.wait(300);
 end;
 _G.FilterItem = true
 _G.Distance = 0 -- Distance Hop
@@ -320,32 +320,11 @@ spawn(
                   end
              end 
             if CDKYed or SGYed or HSYed or DDGYed or YMYed or TSYed or TTKYed then
-            Payload = ""
-             if CDKYed then
-                Payload = Payload .."CDK, "
-                end
-                if SGYed then
-                    Payload = Payload .."SG, "
-                end
-                if HSYed then
-                    Payload = Payload .."HS, "
-                end
-                if DDGYed then
-                    Payload = Payload .."DG, "
-                end
-                if YMYed then
-                    Payload = Payload .."YM, "
-                    end
-                if TSYed then
-                    Payload = Payload .."TS, "
-                    end
-                if TTKYed then
-                    Payload = Payload .."TTK "
-                end
+				Payload = ""
             else
                 Payload = ""
             end
-                Payload = Payload.." \nLevel : "..Level.." \nWorld : "..World.." \nBeli : "..Money.." \nFragment : "..Fragment.." \nFruit Inventory : "..Fruit.." \nInventory : "..Sword.." \nFighting Style : "..Malee
+                Payload = Payload.."Level : "..Level.." \nWorld : "..World.." \nBeli : "..Money.." \nFragment : "..Fragment.." \nFruit Inventory : "..Fruit.." \nInventory : "..Sword.." \nFighting Style : "..Malee
             
                 Request(
                 {
