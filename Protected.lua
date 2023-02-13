@@ -320,10 +320,7 @@ spawn(
                   end
              end 
             if CDKYed or SGYed or HSYed or DDGYed or YMYed or TSYed or TTKYed then
-            Payload = ""
-             if CDKYed then
-                Payload = Payload .."CDK, "
-                end
+				Payload = ""
             else
                 Payload = ""
             end
