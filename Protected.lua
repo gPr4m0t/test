@@ -8,7 +8,7 @@ if not game:IsLoaded() then
     GameLoadGui.Text = 'Wait Game Loading';
     game.Loaded:Wait();
     GameLoadGui:Destroy();
-    task.wait(300);
+    task.wait();
 end;
 _G.FilterItem = true
 _G.Distance = 0 -- Distance Hop
@@ -544,7 +544,7 @@ spawn(
                         end    
                        
                                  if CDKYed then
-                                Payload = Payload .."CDK , "
+                                Payload = Payload .."CDK, "
                                 end
 
                          if MyFruit == "" then
