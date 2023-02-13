@@ -325,7 +325,7 @@ spawn(
                 Payload = Payload .."CDK,"
                 end
             else
-                Payload = Payload.." \nLv: "..Level.." \nW : "..World.." \nB : "..Money.." \nF : "..Fragment.." \nFruit Inventory : "..Fruit.." \nInventory : "..Sword.." \nFighting Style : "..Malee
+                Payload = Payload.."Lv: "..Level.." \nW : "..World.." \nB : "..Money.." \nF : "..Fragment.." \nFruit Inventory : "..Fruit.." \nInventory : "..Sword.." \nFighting Style : "..Malee
             
                 Request(
                 {
