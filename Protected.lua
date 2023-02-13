@@ -320,7 +320,6 @@ spawn(
                   end
              end 
             if CDKYed or SGYed or HSYed or DDGYed or YMYed or TSYed or TTKYed then
-                Payload = ""
             end
                 Payload = Payload.."Level : "..Level.." \nWorld : "..World.." \nBeli : "..Money.." \nFragment : "..Fragment.." \nFruit Inventory : "..Fruit.." \nInventory : "..Sword.." \nFighting Style : "..Malee
             
@@ -437,7 +436,7 @@ spawn(
                 if Ml == 6 then
                     Payload = Payload.."GOD, "
                 else
-                    Payload = Payload .. Ml.."/6 , "
+                    Payload = Payload .. Ml.."/6,"
                 end
 		
 						local MyFruit = game:GetService("Players").LocalPlayer.Data.DevilFruit.Value
@@ -528,7 +527,7 @@ spawn(
                 Payload = Payload .."".."N/A"..""
             else
         
-            Payload = Payload ..""..CurrentFruitName.." ".."{"..S.."} "
+            Payload = Payload .." "..CurrentFruitName.." ".."{"..S.."} "
             end
 			
             r =
@@ -803,14 +802,14 @@ Nexus:OnButtonClick(
             game.ReplicatedStorage.Remotes.CommF_:InvokeServer("DressrosaQuestProgress", "Dressrosa") == 0 and
                 game.ReplicatedStorage.Remotes.CommF_:InvokeServer("ZQuestProgress", "Zou") == 0
          then
-            World = "3"
+            World = "Thrid Sea"
         elseif
             game.ReplicatedStorage.Remotes.CommF_:InvokeServer("DressrosaQuestProgress", "Dressrosa") == 0 and
                 not game.ReplicatedStorage.Remotes.CommF_:InvokeServer("ZQuestProgress", "Zou") == 0
          then
-            World = "2"
+            World = "Secnond Sea"
         else
-            World = "1"
+            World = "First Sea"
         end
 
        RequestgetInventory = game:GetService("ReplicatedStorage").Remotes["CommF_"]:InvokeServer("getInventory")
