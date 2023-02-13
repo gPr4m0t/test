@@ -8,7 +8,7 @@ if not game:IsLoaded() then
     GameLoadGui.Text = 'Wait Game Loading';
     game.Loaded:Wait();
     GameLoadGui:Destroy();
-    task.wait();
+    task.wait(300);
 end;
 _G.FilterItem = true
 _G.Distance = 0 -- Distance Hop
@@ -320,11 +320,32 @@ spawn(
                   end
              end 
             if CDKYed or SGYed or HSYed or DDGYed or YMYed or TSYed or TTKYed then
-				Payload = ""
+            Payload = ""
+             if CDKYed then
+                Payload = Payload .."CDK, "
+                end
+                if SGYed then
+                    Payload = Payload .."SG, "
+                end
+                if HSYed then
+                    Payload = Payload .."HS, "
+                end
+                if DDGYed then
+                    Payload = Payload .."DG, "
+                end
+                if YMYed then
+                    Payload = Payload .."YM, "
+                    end
+                if TSYed then
+                    Payload = Payload .."TS, "
+                    end
+                if TTKYed then
+                    Payload = Payload .."TTK "
+                end
             else
                 Payload = ""
             end
-                Payload = Payload.."Level : "..Level.." \nWorld : "..World.." \nBeli : "..Money.." \nFragment : "..Fragment.." \nFruit Inventory : "..Fruit.." \nInventory : "..Sword.." \nFighting Style : "..Malee
+                Payload = Payload.." \nLevel : "..Level.." \nWorld : "..World.." \nBeli : "..Money.." \nFragment : "..Fragment.." \nFruit Inventory : "..Fruit.." \nInventory : "..Sword.." \nFighting Style : "..Malee
             
                 Request(
                 {
@@ -439,7 +460,7 @@ spawn(
                 if Ml == 6 then
                     Payload = Payload.."GOD, "
                 else
-                    Payload = Payload .. Ml.."/6,"
+                    Payload = Payload .. Ml.."/6 , "
                 end
 		
 						local MyFruit = game:GetService("Players").LocalPlayer.Data.DevilFruit.Value
@@ -523,14 +544,14 @@ spawn(
                         end    
                        
                                  if CDKYed then
-                                Payload = Payload .."CDK, "
+                                Payload = Payload .."CDK , "
                                 end
 
                          if MyFruit == "" then
                 Payload = Payload .."".."N/A"..""
             else
         
-            Payload = Payload .." "..CurrentFruitName.." ".."{"..S.."} "
+            Payload = Payload .."Awake : "..CurrentFruitName.." ".."{"..S.."} "
             end
 			
             r =
@@ -805,14 +826,14 @@ Nexus:OnButtonClick(
             game.ReplicatedStorage.Remotes.CommF_:InvokeServer("DressrosaQuestProgress", "Dressrosa") == 0 and
                 game.ReplicatedStorage.Remotes.CommF_:InvokeServer("ZQuestProgress", "Zou") == 0
          then
-            World = "Thrid Sea"
+            World = "3"
         elseif
             game.ReplicatedStorage.Remotes.CommF_:InvokeServer("DressrosaQuestProgress", "Dressrosa") == 0 and
                 not game.ReplicatedStorage.Remotes.CommF_:InvokeServer("ZQuestProgress", "Zou") == 0
          then
-            World = "Secnond Sea"
+            World = "2"
         else
-            World = "First Sea"
+            World = "1"
         end
 
        RequestgetInventory = game:GetService("ReplicatedStorage").Remotes["CommF_"]:InvokeServer("getInventory")
